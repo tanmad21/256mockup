@@ -4,6 +4,7 @@
 	background-color: #4D394B;
 	color: white;
 	line-height: 196px;
+  height: 208px;
 }
 .btn-nav:active {
 	background-color: #3D293B;
@@ -13,7 +14,6 @@
 }
 .info-bar {
 	height: 30px;
-	margin-bottom: 150px;
 	font-weight: bold;
 	font-size: 21px;
 }
@@ -21,6 +21,13 @@
 	text-align: center;
 }
 
+.blank-space {
+  height: 150px;
+}
+.two-line-btn {
+  line-height: 40px;
+  padding-top: 65px;
+}
 .info-bar,.sub-menu-bar {
 	padding-top: 15px;
 }
