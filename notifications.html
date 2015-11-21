@@ -1,0 +1,57 @@
+<DOCTYPE html>
+<html>
+	<head>
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+		<link rel="stylesheet" type="text/css" href="style.css">
+	</head>
+	<body>
+		<div class='container'>
+			<div class='row sub-menu-bar'>
+				<div class='col-sm-2'>
+					<a href='home.html' class='pull-left back-btn'> &lt;<!--less than < symbol--> Home </a>
+				</div>
+				<div class='col-sm-8'>
+					<p class='sub-page-title center-block'>Notifications</p>
+				</div>
+			</div>
+			<div class='row nav-btn-container'>
+				<ul class='notification-list'>
+					<li>
+						Wristband Notifications 
+						<div class="switch">
+							<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+							<label for="cmn-toggle-1"></label>
+						</div>
+						<div class='clearfix'></div>
+					</li>
+					<li>
+						Phone Notifications
+						<div class="switch">
+							<input id="cmn-toggle-2" class="cmn-toggle cmn-toggle-round" type="checkbox">
+							<label for="cmn-toggle-2"></label>
+						</div>
+						<div class='clearfix'></div>
+					</li>
+					<li>
+						Screen Notifications
+						<div class="switch">
+							<input id="cmn-toggle-3" class="cmn-toggle cmn-toggle-round" type="checkbox">
+							<label for="cmn-toggle-3"></label>
+						</div>
+						<div class='clearfix'></div>
+					</li>
+					<li>
+						Low Quantity Notifications
+						<p id='lq-days'>05 <button id='lq-minus'>-</button> <button id='lq-plus'>+</button> Days</p>
+						<div class="switch">
+							<input id="cmn-toggle-4" class="cmn-toggle cmn-toggle-round" type="checkbox">
+							<label for="cmn-toggle-4"></label>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<script src="notifications.js"></script>
+	</body>
+</html>
