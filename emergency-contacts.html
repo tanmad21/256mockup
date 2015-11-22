@@ -1,0 +1,72 @@
+<DOCTYPE html>
+<html>
+	<head>
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+		<link rel="stylesheet" type="text/css" href="style.css">
+	</head>
+	<body>
+		<div class='container'>
+			<div class='row sub-menu-bar'>
+				<div class='col-sm-2'>
+					<a href='home.html' class='pull-left back-btn'> &lt;<!--less than < symbol--> Home </a>
+				</div>
+				<div class='col-sm-8'>
+					<p class='sub-page-title center-block'>Medications</p>
+				</div>
+			</div>
+			<div class='row blank-space'></div>
+			<div class='row nav-btn-container'>
+				<div id='contacts' class='col-sm-7 contacts'>
+					<div class='contact row'>
+						<div class='col-sm-6 contact-name'>Johnny Appleseed</div>
+						<div class='col-sm-5 contact-number'>(801)234-5678</div>
+						<div class='col-sm-1 contact-delete'>X</div>
+						<div class='confirm-bubble'>Delete Contact?
+							<div class='row'>
+								<div class='col-sm-10 col-sm-offset-1'>
+									<button class='btn btn-danger confirm-delete-btn col-sm-6' onclick='confirmDeleteContact(this)'>Yes</button>
+									<button class='btn btn-info cancel-delete-btn col-sm-6' onclick='cancelDeleteContact(this)'>No</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class='contact row'>
+						<div class='col-sm-6 contact-name'>Grandson Joe</div>
+						<div class='col-sm-5 contact-number'>(555)555-5555</div>
+						<div class='col-sm-1 contact-delete'>X</div>
+						<div class='confirm-bubble'>Delete Contact?
+							<div class='row'>
+								<div class='col-sm-10 col-sm-offset-1'>
+									<button class='btn btn-danger confirm-delete-btn col-sm-6' onclick='confirmDeleteContact(this)'>Yes</button>
+									<button class='btn btn-info cancel-delete-btn col-sm-6' onclick='cancelDeleteContact(this)'>No</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class='contact row'>
+						<div class='col-sm-6 contact-name'>Queen Elizabeth</div>
+						<div class='col-sm-5 contact-number'>(444)444-4444</div>
+						<div class='col-sm-1 contact-delete'>X</div>
+						<div class='confirm-bubble'>Delete Contact?
+							<div class='row'>
+								<div class='col-sm-10 col-sm-offset-1'>
+									<button class='btn btn-danger confirm-delete-btn col-sm-6' onclick='confirmDeleteContact(this)'>Yes</button>
+									<button class='btn btn-info cancel-delete-btn col-sm-6' onclick='cancelDeleteContact(this)'>No</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class='contact row new-contact'>
+						<div class='col-sm-6 contact-name'><input id='new-contact-name' type='text' placeholder='name'/></div>
+						<div class='col-sm-5 contact-number'><input id='new-contact-number' type='text' placeholder='number'/></div>
+						<button id='contact-save' class='col-sm-1 btn btn-success'>Save</button>
+					</div>
+				</div>
+				<div class='col-sm-4 col-sm-offset-1'>
+				</div>
+			</div>
+		</div>
+		<script src='emergency-contacts.js'></script>
+	</body>
+</html>

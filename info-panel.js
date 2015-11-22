@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
-  			
+			
 	function ShowTime() {
 		var dt = new Date();
 		document.getElementById("time").innerHTML = dt.toLocaleTimeString();

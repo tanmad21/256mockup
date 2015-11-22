@@ -1,3 +1,17 @@
+/*changes to bootstrap*/
+.btn:active {
+  margin-left: 2px;
+  margin-right: -2px;
+  margin-top: 2px;
+}
+.btn{
+  border-radius: 0;
+}
+input[type=checkbox] {
+  display:none;
+}
+
+/*app styles*/
 .btn-nav {
 	font-size: 42px;
 	font-weight: bold;
@@ -75,6 +89,63 @@
 	margin-top: 30px;
 	line-height: 20px;
 }
+.contact {
+  font-size: 20px;
+  border-bottom: 2px solid #ddd;
+}
+.contact-delete {
+  color: darkRed;
+  font-weight: bold;
+}
+.contact-delete:hover {
+  cursor: pointer;
+}
+#contacts {
+  margin-top: -38px;
+}
+.contact-name, .contact-delete, .contact-number, #contact-save {
+  margin-bottom: 7px;
+  margin-top: 7px;
+}
+#contact-save:active {
+  margin-top: 9px;
+  margin-bottom: 5px;
+}
+.contact-delete:active {
+  margin-top: 9px;
+  margin-bottom: 5px;
+}
+.confirm-bubble {
+  display:none;
+}
+.confirm-contact-delete {
+  position: relative;
+}
+.confirm-bubble-active {
+  position: absolute;
+  margin-top: 2px;
+  right: 0px;
+  z-index: 100;
+  border: 3px solid;
+  border-radius: 5px;
+  padding: 10px;
+  background-color: white;
+}
+.confirm-bubble-active:before {
+  content: ' ';
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: -31px;
+  top: 0px;
+  border: 15px solid;
+  border-color: transparent #333 transparent transparent;
+}
+.confirm-delete-btn:active,.cancel-delete-btn:active {
+  margin-top:2px;
+  margin-bottom:-2px;
+  margin-left:2px;
+}
 /* ============================================================
   SWITCH 1 - ROUND
 ============================================================ */
@@ -138,17 +209,4 @@ input.cmn-toggle-round:checked + label:after {
 	position: relative;
 	float: right;
 	margin: 12px;
-}
-
-/*changes to bootstrap*/
-.btn:active {
-	margin-left: 2px;
-	margin-right: -2px;
-	margin-top: 2px;
-}
-.btn{
-	border-radius: 0;
-}
-input[type=checkbox] {
-	display:none;
 }
