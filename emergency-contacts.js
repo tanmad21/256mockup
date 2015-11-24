@@ -6,9 +6,18 @@ document.addEventListener("DOMContentLoaded", function() {
 	var phoneElement = document.getElementById('new-contact-number');
 	var contactsElement = document.getElementById('contacts');
 
+	new InputMask().Initialize(document.querySelectorAll("#new-contact-number"),
+	{
+		mask: InputMaskDefaultMask.Phone, 
+		placeHolder: "phone"
+	});
+
 	for(var i = 0; i < deleteButtons.length; i++) {
 		deleteButtons[i].onclick = deleteContact;
 	}
+
+	$('#minutes').iPhonePicker({ width: '80px', imgRoot: 'Images/UIPickerView/', height: '100px' });
+	$('#hours').iPhonePicker({ width: '80px', imgRoot: 'Images/UIPickerView/', height: '100px' });
 
 	function deleteContact(e) {
 		var bubble = this.nextElementSibling;
@@ -22,10 +31,10 @@ document.addEventListener("DOMContentLoaded", function() {
 		var name = nameElement.value;
 		var number = phoneElement.value;
 		if(name.trim() == '') {
-			//error need name
+			alert('Please enter a name.');
 			return;
 		} else if(!validPhoneNumber(number)) {
-			//error need valid number
+			alert('Please enter a valid phone number.');
 			return;
 		}
 
@@ -49,7 +58,7 @@ document.addEventListener("DOMContentLoaded", function() {
 	}
 
 	function validPhoneNumber(number) {
-		return true;
+		return number.length === 14;
 	}
 
 });

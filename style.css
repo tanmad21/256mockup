@@ -38,6 +38,9 @@ input[type=checkbox] {
 .blank-space {
   height: 150px;
 }
+.blank-space-sm {
+  height: 80px;
+}
 .two-line-btn {
   line-height: 40px;
   padding-top: 65px;
@@ -145,6 +148,27 @@ input[type=checkbox] {
   margin-top:2px;
   margin-bottom:-2px;
   margin-left:2px;
+}
+.slider-label {
+  font-weight: bold;
+  font-size: 20px;
+  float: left;
+  margin-left: 105px;
+  line-height: 160px;
+  position: fixed
+}
+.pull-up {
+  margin-top: -40px;
+}
+.time-header-top {
+  padding: 8px;
+  padding-bottom: 14px;
+  margin-left: 35px;
+}
+.time-header-bottom {
+  padding: 18px;
+  margin-left: 25px;
+  margin-top: -34px;
 }
 /* ============================================================
   SWITCH 1 - ROUND
