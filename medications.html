@@ -9,16 +9,77 @@
 		<div class='container'>
 			<div class='row sub-menu-bar'>
 				<div class='col-sm-2'>
-					<a href='settings.html' class='pull-left back-btn'> &lt;<!--less than < symbol--> Settings </a>
+					<a href='home.html' class='pull-left back-btn'> &lt;<!--less than < symbol--> Home </a>
 				</div>
 				<div class='col-sm-8'>
-					<p class='sub-page-title center-block'>Emergency Contacts</p>
+					<p class='sub-page-title center-block'>Medications</p>
 				</div>
 			</div>
 			<div class='row blank-space'></div>
 			<div class='row nav-btn-container'>
-				
+				<div class='row nav-btn-container'>
+					<div class='col-sm-4 col-sm-offset-1'>
+						<a id='add-medication' href='#' class='btn btn-nav center-block'>Add Medication</a>
+					</div>
+					<div class='col-sm-4 col-sm-offset-2'>
+						<a id='view-medications' href='#' class='btn btn-nav center-block two-line-btn'>View Current <br/>Medications</a>
+					</div>
+				</div>
 			</div>
 		</div>
+		<div id='view-medications-overlay' class='overlay'>
+			<div id='drug-list-container' class='col-sm-6 col-sm-offset-3'>
+				<ul id='drug-list'>
+					<li>
+						<div class='col-sm-5 drug-name'>Meloxican</div>
+						<div class='col-sm-7 drug-data'> 60mg - Once Daily - 7 pills left </div>
+					</li>
+					<li>
+						<div class='col-sm-5 drug-name'>Glipizide </div>
+						<div class='col-sm-7 drug-data'> 100mg - Three Times Daily - 23 pills left </div>
+					</li>
+					<li>
+						<div class='col-sm-5 drug-name'>Lisinopril</div>
+						<div class='col-sm-7 drug-data'> 25mg - Once Daily - 12 pills left </div>
+					</li>
+					<li>
+						<div class='col-sm-5 drug-name'>Ibuprofen</div>
+						<div class='col-sm-7 drug-data'> 600mg - As Needed - 19 pills left </div>
+					</li>
+					<li>
+						<div class='col-sm-5 drug-name'>Aspirin</div>
+						<div class='col-sm-7 drug-data'> 20mg - Twice Daily - 14 pills left </div>
+					</li>
+				</ul>
+			</div>
+			<div class='container'>
+				<div class='col-sm-2 col-sm-offset-5'>
+					<button class='btn btn-success done-btn'>Done</button>
+				</div>
+			</div>
+		</div>
+		<div id='add-medication-overlay' class='overlay'>
+			<div class='container instructions-container'>
+				<div class='col-sm-6'>
+					<div class='row instructions'>1. Scan Bottle</div>
+					<div class='row instructions'>2. Pour contents into receptacle</div>
+					<div class='row video-btn medication-info'>
+						<div id='help-video-btn'> ? </div> Help Video
+					</div>
+				</div>
+				<div class='col-sm-6 medication-info-container'>
+					<div class='row medication-info'>Name: Meloxican</div>
+					<div class='row medication-info'>Dosage: 60mg</div>
+					<div class='row medication-info'>Schedule: Once Daily</div>
+				</div>
+			</div>
+			<div class='container'>
+				<div class='col-sm-2 col-sm-offset-5'>
+					<button class='btn btn-success done-btn'>Done</button>
+				</div>
+			</div>
+		</div>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js" type="text/javascript"></script>
+		<script src='medications.js'></script>
 	</body>
 </html>
