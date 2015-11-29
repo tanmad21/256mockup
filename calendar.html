@@ -1,0 +1,42 @@
+<DOCTYPE html>
+<html>
+	<head>
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<script language="JavaScript" type="text/javascript" src="events.js"></script>
+	</head>
+	<body style="background-color: transparent;" onload="changedate('return')">
+		<div class='container'>
+			<div class='row sub-menu-bar'>
+				<div class='col-sm-2'>
+					<a href='settings.html' class='pull-left back-btn'> &lt;<!--less than < symbol--> Settings </a>
+				</div>
+				<div class='col-sm-8'>
+					<p class='sub-page-title center-block'>Calendar</p>
+				</div>
+			</div>
+			<div class='row blank-space'></div>
+			<div class='row nav-btn-container'></div>
+			<center>
+				<table id="evtcal" border="0" cellpadding="0" cellspacing="0" width="900">
+					<tbody>
+						<tr>
+							<td style="padding: 3px;" align="center" bgcolor="#4D394B" valign="top" width="806">
+								<div id="calendar"><!--  Dynamically Filled --></div>
+								</td>
+							<td width="10">&nbsp;</td>
+							<td style="padding: 3px; color:white;" align="center" bgcolor="#4D394B" valign="top" width="340">
+								<center><b>Medications</b>
+								<form id="eventform" name="eventform" action="#" method="get">
+									<textarea style="color:black;" name="eventlist" cols="40" rows="18" wrap="soft"></textarea>
+								</form>
+								</center>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</center>
+		</div>
+	</body>
+</html>

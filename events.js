@@ -1,0 +1,182 @@
+// This is the Database of Upcoming Events
+//
+// 8 Fields (surrounded by brackets[]) are used for EACH event:
+// 	["Recurring", "Month", "Day", "Year", "StartTime", "EndTime", "Name", "Description"]
+// 	Each event field must be be surrounded by quotation marks followed by a comma ("",) EXCEPT the "Description" field.
+//	The "Description" field is surrounded by quotation marks only ("").
+//
+// The Recurring field uses:
+//	"D" = Daily; "W" = Weekly
+//
+// Daily events do NOT require that anything be in the Month Day and Year fields
+//
+// Weekly events should have the day of the week field set to 1 - 7
+//	1=Sunday, 2=Monday, 3=Tuesday, 4=Wednesday, 5=Thurday, 6=Friday, 7=Saturday
+medications = new Array(
+	["D",	"",	"",	"",	"7:00 AM",	"",	"Meloxican", ""],
+	["D",	"",	"",	"",	"7:00 AM, 1:00 PM, 7:00 PM",	"",	"Glipizide", ""],
+	["D",	"",	"",	"",	"7:00 AM",	"",	"Lisinopril", ""],
+	["D",	"",	"",	"",	"Only if needed", "", "Ibuprofen", ""],
+	["D",	"",	"",	"",	"7:00 AM, 7:00 PM",	"",	"Aspirin", ""]
+);
+
+numDays = new Array( 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31);
+
+function getNumDays(month) {
+	// month is one based, so subtract 1 from it
+	return numDays[month - 1];
+}
+
+/* Preload images script */
+var myimages=new Array()
+
+function preloadimages(){
+	for (i=0;i<preloadimages.arguments.length;i++){
+		myimages[i]=new Image();
+		myimages[i].src=preloadimages.arguments[i];
+	}
+}
+
+preloadimages("images/PrevMonOff.jpg","images/PrevMoOn40x40.jpg","images/NextMonOff.jpg","images/NextMoOn40x40.jpg");
+
+/***************************************************************************************
+Functions
+	changedate(): Moves to next or previous month or year, or current month depending on the button clicked.
+	createCalendar(): Renders the calander into the page with links for each to fill the date form filds above.
+			
+***************************************************************************************/
+
+var thisDate = 1;							// Tracks current date being written in calendar
+var wordMonth = new Array("January","February","March","April","May","June","July","August","September","October","November","December");
+var today = new Date();							// Date object to store the current date
+var todaysDay = today.getDay() + 1;					// Stores the current day number 1-7
+var todaysDate = today.getDate();					// Stores the current numeric date within the month
+var todaysMonth = today.getUTCMonth() + 1;				// Stores the current month 1-12
+var todaysYear = today.getFullYear();					// Stores the current year
+var monthNum = todaysMonth;						// Tracks the current month being displayed
+var yearNum = todaysYear;						// Tracks the current year being displayed
+var firstDate = new Date(String(monthNum)+"/1/"+String(yearNum));	// Object Storing the first day of the current month
+var firstDay = firstDate.getUTCDay();					// Tracks the day number 1-7 of the first day of the current month
+var lastDate = new Date(String(monthNum +1)+"/1/"+String(yearNum));	// Tracks the last date of the current month
+var numbDays = 0;
+var calendarString = "";
+
+function changedate(buttonpressed) {
+	if (buttonpressed == "prevmo") monthNum--;
+	else if (buttonpressed == "nextmo") monthNum++;
+
+	if (monthNum == 0) {
+		monthNum = 12;
+		yearNum--;
+	}
+	else if (monthNum == 13) {
+		monthNum = 1;
+		yearNum++
+	}
+
+	lastDate = new Date(String(monthNum+1)+"/1/"+String(yearNum));
+	numbDays = getNumDays(monthNum);
+	firstDate = new Date(String(monthNum)+"/1/"+String(yearNum));
+	firstDay = firstDate.getDay() + 1;
+	createCalendar();
+	return;
+}
+
+function createCalendar() {
+	calendarString = '';
+	var daycounter = 0;
+	calendarString += '<table width="800" border="1" cellpadding="0" cellspacing="1">';
+	calendarString += '<tr>';
+	calendarString += '<td align=\"center\" valign=\"center\" width=\"40\" height=\"40\"><a href=\"#\" width=\"40\" height=\"40\" border=\"0\" \/><\/a><\/td>';
+	calendarString += '<td align=\"center\" valign=\"center\" width=\"40\" height=\"40\"><a href=\"#\" onMouseOver=\"document.PrevMo.src=\'images\/PrevMoOn\.jpg\';\" onMouseOut=\"document.PrevMo.src=\'images\/PrevMonOff\.jpg\';\" onClick=\"changedate(\'prevmo\')\"><img name=\"PrevMo\" src=\"images\/PrevMonOff\.jpg\" width=\"40\" height=\"40\" border=\"0\" alt=\"Prev Mo\"\/><\/a><\/td>';
+	calendarString += '<td bgcolor=\"#4D394B\" style=\" color:white;\" align=\"center\" valign=\"center\" width=\"128\" height=\"40\" colspan=\"3\"><b>' + wordMonth[monthNum-1] + '&nbsp;&nbsp;' + yearNum + '<\/b><\/td>';
+	calendarString += '<td align=\"center\" valign=\"center\" width=\"40\" height=\"40\"><a href=\"#\" onMouseOver=\"document.NextMo.src=\'images\/NextMoOn\.jpg\';\" onMouseOut=\"document.NextMo.src=\'images\/NextMonOff\.jpg\';\" onClick=\"changedate(\'nextmo\')\"><img name=\"NextMo\" src=\"images\/NextMonOff\.jpg\" width=\"40\" height=\"40\" border=\"0\" alt=\"Next Mo\"\/><\/a><\/td>';
+	calendarString += '<td align=\"center\" valign=\"center\" width=\"40\" height=\"40\"><a href=\"#\" width=\"40\" height=\"40\" border=\"0\" \/><\/a><\/td>';
+	calendarString += '<\/tr>';
+	calendarString += '<tr>';
+	calendarString += '<td bgcolor=\"#DDDDDD\" align=\"center\" valign=\"center\" width=\"40\" height=\"30\">Sun<\/td>';
+	calendarString += '<td bgcolor=\"#DDDDDD\" align=\"center\" valign=\"center\" width=\"40\" height=\"30\">Mon<\/td>';
+	calendarString += '<td bgcolor=\"#DDDDDD\" align=\"center\" valign=\"center\" width=\"40\" height=\"30\">Tue<\/td>';
+	calendarString += '<td bgcolor=\"#DDDDDD\" align=\"center\" valign=\"center\" width=\"40\" height=\"30\">Wed<\/td>';
+	calendarString += '<td bgcolor=\"#DDDDDD\" align=\"center\" valign=\"center\" width=\"40\" height=\"30\">Thu<\/td>';
+	calendarString += '<td bgcolor=\"#DDDDDD\" align=\"center\" valign=\"center\" width=\"40\" height=\"30\">Fri<\/td>';
+	calendarString += '<td bgcolor=\"#DDDDDD\" align=\"center\" valign=\"center\" width=\"40\" height=\"30\">Sat<\/td>';
+	calendarString += '<\/tr>';
+
+	thisDate == 1;
+
+	for (var i = 1; i <= 6; i++) {
+		calendarString += '<tr>';
+		for (var x = 1; x <= 7; x++) {
+			daycounter = (thisDate - firstDay)+1;
+			thisDate++;
+			if ((daycounter > numbDays) || (daycounter < 1)) {
+				calendarString += '<td align=\"center\" bgcolor=\"#DDDDDD\" height=\"40\" width=\"40\">&nbsp;<\/td>';
+			} else {
+				if (checkMeds(daycounter,monthNum,yearNum,i,x) || ((todaysDay == x) && (todaysDate == daycounter) && (todaysMonth == monthNum))){
+					if ((todaysDay == x) && (todaysDate == daycounter) && (todaysMonth == monthNum)) {	// todays date
+						calendarString += '<td align=\"center\" bgcolor=\"#AAFFAA\" height=\"50\" width=\"40\"><a href=\"javascript:showMeds(' + daycounter + ',' + monthNum + ',' + yearNum + ',' + i + ',' + x + ')\">' + daycounter + '<\/a><\/td>';
+					}
+ 					else	// any other day that has meds
+ 						calendarString += '<td align=\"center\" bgcolor=\"#FFFFFF\" height=\"50\" width=\"40\"><a href=\"javascript:showMeds(' + daycounter + ',' + monthNum + ',' + yearNum + ',' + i + ',' + x + ')\">' + daycounter + '<\/a><\/td>';
+				} else {	// day with no meds
+					calendarString += '<td align=\"center\" bgcolor=\"#DDFFFF\" height=\"50\" width=\"40\">' + daycounter + '<\/td>';
+				}
+			}
+		}
+		calendarString += '<\/tr>';
+	}
+	calendarString += '<\/table>';
+	
+	var object=document.getElementById('calendar');
+	object.innerHTML= calendarString;
+	thisDate = 1;
+}
+
+
+function checkMeds(day,month,year,week,dayofweek) {
+var numMeds = 0;
+var floater = 0;
+
+	for (var i = 0; i < medications.length; i++) {
+		if (medications[i][0] == "D") {
+			numMeds++;
+		}
+		else if (medications[i][0] == "W") {
+			if ((medications[i][2] == dayofweek)) numMeds++;
+		}
+		else if ((medications[i][2] == day) && (medications[i][1] == month) && (medications[i][3] == year)) {
+			numMeds++;
+		}
+	}
+	if (numMeds == 0) {
+		return false;
+	} else {
+		return true;
+	}
+}
+
+function showMeds(day,month,year,week,dayofweek) {
+var theevent = "";
+var floater = 0;
+
+	for (var i = 0; i < medications.length; i++) {
+		if (medications[i][0] != "") {
+			if (medications[i][0] == "D") {
+				theevent += medications[i][6] + ' at ' + medications[i][4] + '\n';
+			}
+			else if (medications[i][0] == "W") {
+				if ((medications[i][2] == dayofweek)) {
+				theevent += medications[i][6] + ' at ' + medications[i][4] + '\n';
+				}
+			}
+		}
+		else if ((medications[i][2] == day) && (medications[i][1] == month) && (medications[i][3] == year)) {
+			theevent += medications[i][6] + ' at ' + medications[i][4] + '\n';
+		}
+	}
+	if (theevent == "") 
+		document.forms.eventform.eventlist.value = month +'/'+ day +'/'+ year + '\n' + 'No medications to show.';
+	else 
+		document.forms.eventform.eventlist.value = month +'/'+ day +'/'+ year + '\n' + theevent;
+}

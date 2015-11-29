@@ -318,7 +318,7 @@ input.cmn-toggle-round:checked + label:after {
 	margin: 12px;
 }
 
-#evtcal a:link {font: normal 12pt "Arial", "Helvetica", "Sans Serif"; color: #004400; text-decoration: none;}   /* unvisited link */
-#evtcal a:visited {font: normal 12pt "Arial", "Helvetica", "Sans Serif"; color: #004400; text-decoration: none;}  /* visited link */
-#evtcal a:hover {font: normal 12pt "Arial", "Helvetica", "Sans Serif"; color: #004400; text-decoration: underline;} /* mouse over link */
-#evtcal a:active {font: normal 12pt "Arial", "Helvetica", "Sans Serif"; color: #004400; text-decoration: none;}   /* selected link */
+#evtcal a:link {font: normal 16pt "Arial", "Helvetica", "Sans Serif"; color: #004400; text-decoration: none;}   /* unvisited link */
+#evtcal a:visited {font: normal 16pt "Arial", "Helvetica", "Sans Serif"; color: #004400; text-decoration: none;}  /* visited link */
+#evtcal a:hover {font: normal 16pt "Arial", "Helvetica", "Sans Serif"; color: #004400; text-decoration: underline;} /* mouse over link */
+#evtcal a:active {font: normal 16pt "Arial", "Helvetica", "Sans Serif"; color: #004400; text-decoration: none;}   /* selected link */
