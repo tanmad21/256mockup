@@ -37,7 +37,7 @@ function preloadimages(){
 	}
 }
 
-preloadimages("images/PrevMonOff.jpg","images/PrevMoOn40x40.jpg","images/NextMonOff.jpg","images/NextMoOn40x40.jpg");
+preloadimages("images/PrevMonOff.jpg","images/PrevMoOn.jpg","images/NextMonOff.jpg","images/NextMoOn.jpg");
 
 /***************************************************************************************
 Functions
@@ -130,6 +130,7 @@ function createCalendar() {
 	
 	var object=document.getElementById('calendar');
 	object.innerHTML= calendarString;
+	showMeds(todaysDate, todaysMonth, todaysYear, 0, 0);
 	thisDate = 1;
 }
 
