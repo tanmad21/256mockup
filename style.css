@@ -14,11 +14,13 @@ input[type=checkbox] {
 /*app styles*/
 .btn-nav {
 	font-size: 42px;
-	font-weight: bold;
+	font-weight: 200;
 	background-color: #4D394B;
 	color: white;
-	line-height: 196px;
-  height: 208px;
+	line-height: 225px;
+  height: 250px;
+  border-radius: 8px;
+  letter-spacing: 1.5px;
 }
 .btn-nav:active {
 	background-color: #3D293B;
@@ -28,11 +30,11 @@ input[type=checkbox] {
 }
 .info-bar {
 	height: 30px;
-	font-weight: bold;
-	font-size: 21px;
+	font-size: 22px;
 }
 #time {
 	text-align: center;
+  font-weight: bold;
 }
 
 .blank-space {
@@ -42,7 +44,7 @@ input[type=checkbox] {
   height: 80px;
 }
 .two-line-btn {
-  line-height: 40px;
+  line-height: 55px;
   padding-top: 65px;
 }
 .info-bar,.sub-menu-bar {
@@ -57,12 +59,12 @@ input[type=checkbox] {
 }
 .sub-page-title {
 	text-align: center;
-	font-size: 60px;
+	font-size: 58px;
 }
 .back-btn {
 	color: white;
 	font-size: 28px;
-	font-weight: bold;
+	/*font-weight: bold;*/
 	padding-left: 15px;
 }
 .back-btn:hover {
@@ -107,8 +109,8 @@ input[type=checkbox] {
   margin-top: -38px;
 }
 .contact-name, .contact-delete, .contact-number, #contact-save {
-  margin-bottom: 7px;
-  margin-top: 7px;
+  margin-bottom: 10px;
+  margin-top: 10px;
 }
 #contact-save:active {
   margin-top: 9px;
@@ -168,7 +170,7 @@ input[type=checkbox] {
 .time-header-bottom {
   padding: 18px;
   margin-left: 25px;
-  margin-top: -34px;
+  margin-top: -18px;
 }
 
 .overlay {
@@ -213,10 +215,11 @@ input[type=checkbox] {
 }
 .done-btn {
   width: 100%;
-  height: 50px;
+  height: 60px;
   font-size: 24px;
   font-weight: bold;
   margin-top: 35px;
+  border-radius: 6px;
 }
 .done-btn:active {
   margin-top: 37px;
