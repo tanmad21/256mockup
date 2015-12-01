@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 	$('#add-medication').on('click', function(e) {
 		e.preventDefault();
-		$('#add-medication-overlay').show();
+		$('#scan-overlay').show();
 	});
 
 	$('#view-medications').on('click', function(e) {
@@ -10,9 +10,21 @@ document.addEventListener("DOMContentLoaded", function() {
 		$('#view-medications-overlay').show();
 	});
 
+	$('.scan-btn').on('click', function(e) {
+		e.preventDefault();
+		$('#scan-overlay').hide();
+		$('#pour-overlay').show();
+	});
+
 	$('.done-btn').on('click', function(e) {
 		e.preventDefault();
 		$('.overlay').hide();
 	});
+
+	$('.instructions-container').on('click', function(e) {
+		e.preventDefault();
+		$('.overlay').hide();
+	});
+	
 
 });

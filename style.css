@@ -1,8 +1,8 @@
 /*changes to bootstrap*/
 .btn:active {
-  margin-left: 2px;
+/*  margin-left: 2px;
   margin-right: -2px;
-  margin-top: 2px;
+  margin-top: 2px;*/
 }
 .btn{
   border-radius: 0;
@@ -10,17 +10,32 @@
 input[type=checkbox] {
   display:none;
 }
+.button-danger {
+
+}
+.btn-success {
+  background-color: rgb(77, 140, 140) !important;
+  border-color: rgb(77, 140, 140) !important;
+}
+.btn-success:hover {
+  background-color: rgb(66, 120, 120) !important;
+  border-color: rgb(66, 120, 120) !important;
+}
 
 /*app styles*/
+* {
+  font-family: 'Roboto', sans-serif;
+}
 .btn-nav {
-	font-size: 42px;
+	font-size: 36px;
 	font-weight: 200;
 	background-color: #4D394B;
 	color: white;
 	line-height: 225px;
   height: 250px;
+  width: 320px;
   border-radius: 8px;
-  letter-spacing: 1.5px;
+  /*letter-spacing: 1.2px;*/
 }
 .btn-nav:active {
 	background-color: #3D293B;
@@ -30,7 +45,8 @@ input[type=checkbox] {
 }
 .info-bar {
 	height: 30px;
-	font-size: 22px;
+	font-size: 24px;
+  color: rgb(99, 101, 105);
 }
 #time {
 	text-align: center;
@@ -59,7 +75,7 @@ input[type=checkbox] {
 }
 .sub-page-title {
 	text-align: center;
-	font-size: 58px;
+	font-size: 48px;
 }
 .back-btn {
 	color: white;
@@ -95,11 +111,11 @@ input[type=checkbox] {
 	line-height: 20px;
 }
 .contact {
-  font-size: 20px;
+  font-size: 24px;
   border-bottom: 2px solid #ddd;
 }
 .contact-delete {
-  color: darkRed;
+  color: #E54C5B;
   font-weight: bold;
 }
 .contact-delete:hover {
@@ -111,6 +127,20 @@ input[type=checkbox] {
 .contact-name, .contact-delete, .contact-number, #contact-save {
   margin-bottom: 10px;
   margin-top: 10px;
+}
+#new-contact-name, #new-contact-number {
+  border: none;
+}
+#contact-save {
+  border: none;
+  background-color: transparent;
+  font-size: 30px;
+  line-height: 23px;
+  margin-left: -6px;
+
+}
+#contact-save:focus, #new-contact-name:focus, #new-contact-number:focus {
+  outline: 0;
 }
 #contact-save:active {
   margin-top: 9px;
@@ -163,14 +193,7 @@ input[type=checkbox] {
   margin-top: -40px;
 }
 .time-header-top {
-  padding: 8px;
-  padding-bottom: 14px;
-  margin-left: 35px;
-}
-.time-header-bottom {
-  padding: 18px;
-  margin-left: 25px;
-  margin-top: -18px;
+  padding: 9px 2px 31px 55px;
 }
 
 .overlay {
@@ -180,7 +203,7 @@ input[type=checkbox] {
   top: 0px;
   bottom: 0px;
   right: 0px;
-  background-color: rgba(55,55,55,0.8);
+  background-color: rgba(55,55,55,0.9);
 }
 .instructions-container {
   margin-top: 10%;
@@ -188,15 +211,17 @@ input[type=checkbox] {
 .instructions {
   color: white;
   font-weight: bold;
-  font-size: 55px;
+  font-size: 64px;
   line-height: 55px;
   padding-top: 40px;
+  padding-bottom: 30px;
+  text-align: center;
 
 }
 .medication-info {
-  padding: 40px;
+  padding: 5px;
   color: white;
-  font-weight: bold;
+  font-weight: 400;
   font-size: 35px;
 }
 .medication-info-container {
@@ -209,11 +234,12 @@ input[type=checkbox] {
   height: 50px;
   display: inline-block;
   text-align: center;
+  margin-bottom: 150px;
 }
 .video-btn:hover {
   cursor: pointer;
 }
-.done-btn {
+.done-btn, .scan-btn {
   width: 100%;
   height: 60px;
   font-size: 24px;
@@ -251,11 +277,13 @@ input[type=checkbox] {
 .drug-name {
   line-height: 100px;
   font-size: 40px;
+  padding-left: 30px;
 }
 .drug-data {
   font-size: 20px;
   line-height: 100px;
 }
+
 /* ============================================================
   SWITCH 1 - ROUND
 ============================================================ */
@@ -310,7 +338,7 @@ input.cmn-toggle-round + label:after {
   transition: margin 0.4s;
 }
 input.cmn-toggle-round:checked + label:before {
-  background-color: #8ce196;
+  background-color: rgb(99, 180, 180);
 }
 input.cmn-toggle-round:checked + label:after {
   margin-left: 60px;
@@ -320,6 +348,7 @@ input.cmn-toggle-round:checked + label:after {
 	float: right;
 	margin: 12px;
 }
+
 
 #evtcal a:link {font: normal 16pt "Arial", "Helvetica", "Sans Serif"; color: #004400; text-decoration: none;}   /* unvisited link */
 #evtcal a:visited {font: normal 16pt "Arial", "Helvetica", "Sans Serif"; color: #004400; text-decoration: none;}  /* visited link */
