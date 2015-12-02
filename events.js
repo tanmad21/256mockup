@@ -1,7 +1,7 @@
 // This is the Database of Upcoming Events
 //
 // 8 Fields (surrounded by brackets[]) are used for EACH event:
-// 	["Recurring", "Month", "Day", "Year", "StartTime", "EndTime", "Name", "Description"]
+// 	["Recurring", "Month", "Day", "Year", "Medications", "Time"]
 // 	Each event field must be be surrounded by quotation marks followed by a comma ("",) EXCEPT the "Description" field.
 //	The "Description" field is surrounded by quotation marks only ("").
 //
@@ -12,12 +12,18 @@
 //
 // Weekly events should have the day of the week field set to 1 - 7
 //	1=Sunday, 2=Monday, 3=Tuesday, 4=Wednesday, 5=Thurday, 6=Friday, 7=Saturday
+
+// entries in array are stored by disbursement times during the day
 medications = new Array(
-	["D",	"",	"",	"",	"7:00 AM",	"",	"Meloxican", ""],
-	["D",	"",	"",	"",	"7:00 AM, 1:00 PM, 7:00 PM",	"",	"Glipizide", ""],
-	["D",	"",	"",	"",	"7:00 AM",	"",	"Lisinopril", ""],
-	["D",	"",	"",	"",	"Only if needed", "", "Ibuprofen", ""],
-	["D",	"",	"",	"",	"7:00 AM, 7:00 PM",	"",	"Aspirin", ""]
+	["D",	"",	"",	"",	"Aspirin, Glipizide, Lisinopril, Meloxican",	"7:00 AM"],
+	["D",	"",	"",	"",	"Glipizide", 									"1:00 PM"],
+	["D",	"",	"",	"",	"Aspirin, Glipizide",							"7:00 PM"],
+	["D",	"",	"",	"",	"Ibuprofen", 									"Only If Needed"]
+	// ["D",	"",	"",	"",	"7:00 AM",	"",	"Meloxican", ""],
+	// ["D",	"",	"",	"",	"7:00 AM, 1:00 PM, 7:00 PM",	"",	"Glipizide", ""],
+	// ["D",	"",	"",	"",	"7:00 AM",	"",	"Lisinopril", ""],
+	// ["D",	"",	"",	"",	"Only if needed", "", "Ibuprofen", ""],
+	// ["D",	"",	"",	"",	"7:00 AM, 7:00 PM",	"",	"Aspirin", ""]
 );
 
 numDays = new Array( 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31);
@@ -164,20 +170,20 @@ var floater = 0;
 	for (var i = 0; i < medications.length; i++) {
 		if (medications[i][0] != "") {
 			if (medications[i][0] == "D") {
-				theevent += medications[i][6] + ' at ' + medications[i][4] + '\n';
+				theevent += medications[i][5] + ': ' + medications[i][4] + '\n';
 			}
 			else if (medications[i][0] == "W") {
 				if ((medications[i][2] == dayofweek)) {
-				theevent += medications[i][6] + ' at ' + medications[i][4] + '\n';
+				theevent += medications[i][5] + ': ' + medications[i][4] + '\n';
 				}
 			}
 		}
 		else if ((medications[i][2] == day) && (medications[i][1] == month) && (medications[i][3] == year)) {
-			theevent += medications[i][6] + ' at ' + medications[i][4] + '\n';
+			theevent += medications[i][5] + ': ' + medications[i][4] + '\n';
 		}
 	}
 	if (theevent == "") 
-		document.forms.eventform.eventlist.value = month +'/'+ day +'/'+ year + '\n' + 'No medications to show.';
+		document.forms.eventform.eventlist.value = month +'/'+ day +'/'+ year + '\n' + 'No medications today.';
 	else 
 		document.forms.eventform.eventlist.value = month +'/'+ day +'/'+ year + '\n' + theevent;
 }
