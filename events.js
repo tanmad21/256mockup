@@ -1,3 +1,16 @@
+document.addEventListener("DOMContentLoaded", function() {
+	
+	$('#view-medications').on('click', function(e) {
+			e.preventDefault();
+			$('#view-medications-overlay').show();
+		});
+	
+	$('.done-btn').on('click', function(e) {
+		e.preventDefault();
+		$('.overlay').hide();
+	});
+});
+
 // This is the Database of Upcoming Events
 //
 // 8 Fields (surrounded by brackets[]) are used for EACH event:
@@ -18,7 +31,7 @@ medications = new Array(
 	["D",	"",	"",	"",	"Aspirin, Glipizide, Lisinopril, Meloxican",	"7:00 AM"],
 	["D",	"",	"",	"",	"Glipizide", 									"1:00 PM"],
 	["D",	"",	"",	"",	"Aspirin, Glipizide",							"7:00 PM"],
-	["D",	"",	"",	"",	"Ibuprofen", 									"Only If Needed"]
+	["D",	"",	"",	"",	"Ibuprofen", 									"As Needed"]
 	// ["D",	"",	"",	"",	"7:00 AM",	"",	"Meloxican", ""],
 	// ["D",	"",	"",	"",	"7:00 AM, 1:00 PM, 7:00 PM",	"",	"Glipizide", ""],
 	// ["D",	"",	"",	"",	"7:00 AM",	"",	"Lisinopril", ""],
@@ -91,7 +104,7 @@ function changedate(buttonpressed) {
 function createCalendar() {
 	calendarString = '';
 	var daycounter = 0;
-	calendarString += '<table width="800" border="1" cellpadding="0" cellspacing="1">';
+	calendarString += '<table width="900" border="1" cellpadding="0" cellspacing="1">';
 	calendarString += '<tr>';
 	calendarString += '<td align=\"center\" valign=\"center\" width=\"40\" height=\"40\"><a href=\"#\" width=\"40\" height=\"40\" border=\"0\" \/><\/a><\/td>';
 	calendarString += '<td align=\"center\" valign=\"center\" width=\"40\" height=\"40\"><a href=\"#\" onMouseOver=\"document.PrevMo.src=\'images\/PrevMoOn\.jpg\';\" onMouseOut=\"document.PrevMo.src=\'images\/PrevMonOff\.jpg\';\" onClick=\"changedate(\'prevmo\')\"><img name=\"PrevMo\" src=\"images\/PrevMonOff\.jpg\" width=\"40\" height=\"40\" border=\"0\" alt=\"Prev Mo\"\/><\/a><\/td>';
@@ -100,13 +113,13 @@ function createCalendar() {
 	calendarString += '<td align=\"center\" valign=\"center\" width=\"40\" height=\"40\"><a href=\"#\" width=\"40\" height=\"40\" border=\"0\" \/><\/a><\/td>';
 	calendarString += '<\/tr>';
 	calendarString += '<tr>';
-	calendarString += '<td bgcolor=\"#DDDDDD\" align=\"center\" valign=\"center\" width=\"40\" height=\"30\">Sun<\/td>';
-	calendarString += '<td bgcolor=\"#DDDDDD\" align=\"center\" valign=\"center\" width=\"40\" height=\"30\">Mon<\/td>';
-	calendarString += '<td bgcolor=\"#DDDDDD\" align=\"center\" valign=\"center\" width=\"40\" height=\"30\">Tue<\/td>';
-	calendarString += '<td bgcolor=\"#DDDDDD\" align=\"center\" valign=\"center\" width=\"40\" height=\"30\">Wed<\/td>';
-	calendarString += '<td bgcolor=\"#DDDDDD\" align=\"center\" valign=\"center\" width=\"40\" height=\"30\">Thu<\/td>';
-	calendarString += '<td bgcolor=\"#DDDDDD\" align=\"center\" valign=\"center\" width=\"40\" height=\"30\">Fri<\/td>';
-	calendarString += '<td bgcolor=\"#DDDDDD\" align=\"center\" valign=\"center\" width=\"40\" height=\"30\">Sat<\/td>';
+	calendarString += '<td bgcolor=\"#DDDDDD\" align=\"center\" valign=\"center\" width=\"60\" height=\"40\">Sun<\/td>';
+	calendarString += '<td bgcolor=\"#DDDDDD\" align=\"center\" valign=\"center\" width=\"60\" height=\"40\">Mon<\/td>';
+	calendarString += '<td bgcolor=\"#DDDDDD\" align=\"center\" valign=\"center\" width=\"60\" height=\"40\">Tue<\/td>';
+	calendarString += '<td bgcolor=\"#DDDDDD\" align=\"center\" valign=\"center\" width=\"60\" height=\"40\">Wed<\/td>';
+	calendarString += '<td bgcolor=\"#DDDDDD\" align=\"center\" valign=\"center\" width=\"60\" height=\"40\">Thu<\/td>';
+	calendarString += '<td bgcolor=\"#DDDDDD\" align=\"center\" valign=\"center\" width=\"60\" height=\"40\">Fri<\/td>';
+	calendarString += '<td bgcolor=\"#DDDDDD\" align=\"center\" valign=\"center\" width=\"60\" height=\"40\">Sat<\/td>';
 	calendarString += '<\/tr>';
 
 	thisDate == 1;
@@ -117,16 +130,16 @@ function createCalendar() {
 			daycounter = (thisDate - firstDay)+1;
 			thisDate++;
 			if ((daycounter > numbDays) || (daycounter < 1)) {
-				calendarString += '<td align=\"center\" bgcolor=\"#DDDDDD\" height=\"40\" width=\"40\">&nbsp;<\/td>';
+				calendarString += '<td align=\"center\" bgcolor=\"#DDDDDD\" height=\"50\" width=\"60\">&nbsp;<\/td>';
 			} else {
 				if (checkMeds(daycounter,monthNum,yearNum,i,x) || ((todaysDay == x) && (todaysDate == daycounter) && (todaysMonth == monthNum))){
 					if ((todaysDay == x) && (todaysDate == daycounter) && (todaysMonth == monthNum)) {	// todays date
-						calendarString += '<td align=\"center\" bgcolor=\"#AAFFAA\" height=\"50\" width=\"40\"><a href=\"javascript:showMeds(' + daycounter + ',' + monthNum + ',' + yearNum + ',' + i + ',' + x + ')\">' + daycounter + '<\/a><\/td>';
+						calendarString += '<td align=\"center\" bgcolor=\"#4D8C8C\" height=\"60\" width=\"60\"><a href=\"javascript:showMeds(' + daycounter + ',' + monthNum + ',' + yearNum + ',' + i + ',' + x + ')\">' + daycounter + '<\/a><\/td>';
 					}
  					else	// any other day that has meds
- 						calendarString += '<td align=\"center\" bgcolor=\"#FFFFFF\" height=\"50\" width=\"40\"><a href=\"javascript:showMeds(' + daycounter + ',' + monthNum + ',' + yearNum + ',' + i + ',' + x + ')\">' + daycounter + '<\/a><\/td>';
+ 						calendarString += '<td align=\"center\" bgcolor=\"#FFFFFF\" height=\"60\" width=\"60\"><a href=\"javascript:showMeds(' + daycounter + ',' + monthNum + ',' + yearNum + ',' + i + ',' + x + ')\">' + daycounter + '<\/a><\/td>';
 				} else {	// day with no meds
-					calendarString += '<td align=\"center\" bgcolor=\"#DDFFFF\" height=\"50\" width=\"40\">' + daycounter + '<\/td>';
+					calendarString += '<td align=\"center\" bgcolor=\"#DDFFFF\" height=\"60\" width=\"60\">' + daycounter + '<\/td>';
 				}
 			}
 		}
@@ -136,7 +149,6 @@ function createCalendar() {
 	
 	var object=document.getElementById('calendar');
 	object.innerHTML= calendarString;
-	showMeds(todaysDate, todaysMonth, todaysYear, 0, 0);
 	thisDate = 1;
 }
 
@@ -164,26 +176,25 @@ var floater = 0;
 }
 
 function showMeds(day,month,year,week,dayofweek) {
-var theevent = "";
-var floater = 0;
-
+	var theevent = "<ul id='drug-list'>";
+	theevent += "<li> <div class='col-sm-12 drug-date'>" + month + '/' + day + '/' + year + "</div> </li>";
+	var floater = 0;
 	for (var i = 0; i < medications.length; i++) {
 		if (medications[i][0] != "") {
 			if (medications[i][0] == "D") {
-				theevent += medications[i][5] + ': ' + medications[i][4] + '\n';
+				theevent += "<li> <div class='col-sm-5 drug-name'>" + medications[i][5] + "</div> <div class='col-sm-7 drug-data'>" + medications[i][4] +  "</div> </li>" + '\n';
 			}
 			else if (medications[i][0] == "W") {
 				if ((medications[i][2] == dayofweek)) {
-				theevent += medications[i][5] + ': ' + medications[i][4] + '\n';
+					theevent += "<li> <div class='col-sm-5 drug-name'>" + medications[i][5] + "</div> <div class='col-sm-7 drug-data'>" + medications[i][4] +  "</div> </li>" + '\n';
 				}
 			}
 		}
 		else if ((medications[i][2] == day) && (medications[i][1] == month) && (medications[i][3] == year)) {
-			theevent += medications[i][5] + ': ' + medications[i][4] + '\n';
+			theevent += "<li> <div class='col-sm-5 drug-name'>" + medications[i][5] + "</div> <div class='col-sm-7 drug-data'>" + medications[i][4] +  "</div> </li>" + '\n';
 		}
 	}
-	if (theevent == "") 
-		document.forms.eventform.eventlist.value = month +'/'+ day +'/'+ year + '\n' + 'No medications today.';
-	else 
-		document.forms.eventform.eventlist.value = month +'/'+ day +'/'+ year + '\n' + theevent;
+	theevent+= "</ul>";
+	document.getElementById("drug-list-container").innerHTML =theevent;
+	$('#view-medications-overlay').show();
 }

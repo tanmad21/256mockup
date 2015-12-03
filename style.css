@@ -283,6 +283,10 @@ input[type=checkbox] {
   font-size: 20px;
   line-height: 100px;
 }
+.drug-date {
+  font-size: 40px;
+  text-align: center;
+}
 
 /* ============================================================
   SWITCH 1 - ROUND
